@@ -33,26 +33,30 @@
 ?>
 <body>
   <h1>Product</h1>
+  <form action="addp.php">
     <table>
          <tr>
             <th>ID</th>
-            <th>PG_ID</th>
+            <th>ProductGroupID</th>
             <th>Code</th>
             <th>Name</th>
             <th>status</th>  
          </tr>
-         <? while($row=mysqli_fetch_assoc($result)){?>
+        <? 
+        while($row=mysqli_fetch_assoc($result)){?>
         <tr>
           <td><?=$row['id']?></td>
           <td><?=$row['pg_id']?></td>
           <td><?=$row['code']?></td>
           <td><?=$row['name']?></td>
-          <td><?=$row['status']?></td>
-          <td><a href="http://localhost:81/example/editp.php">Edit</a></td>
+          <td><?=$row['status']?></td>          
+          <td><button type="button"><a href="http://localhost:81/example/editp.php?id=<?=$row['id']?>">Edit</a></button></td>          
         </tr>
       <?}?>
     </table>
-<a href="http://localhost:81/example/addproduct.php">Add</a>
+      <br>
+        <input type="submit" value="ADD">
+    </form>
 </body>
 
 </html>

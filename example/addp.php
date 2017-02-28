@@ -1,9 +1,12 @@
 <!html>
     <body>
-    <h1>Product Group</h1>
-        <form action="save.php" method="post">
+        <h1>Product</h1>
+        <form action="savep.php" method="post">
             <fieldset>
-                <legend>Add Product Group</legend>
+                <legend>Add Product</legend>
+                    ProductGroupID:<br>
+                    <input type="text" name="pg_id">
+                    <br>
                     Code:<br>
                     <input type="text" name="code">
                     <br>

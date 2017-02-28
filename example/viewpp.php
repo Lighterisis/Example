@@ -28,33 +28,31 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
-  $sql = "SELECT * FROM pg";
+  $sql = "SELECT * FROM pp";
   $result = $con->query($sql);
   
   ?>
   <body>
-    <h1>Product Group</h1>
-    <form action="add.php">
+    <h1>Product Pay</h1>
+    <form action="addpp.php">
     <table>
       <tr>
         <th>ID</th>
-        <th>Code</th>
-        <th>Name</th>
-        <th>status</th>  
+        <th>ProductID</th>
+        <th>Price</th>
       </tr>
           <?
               while($row=mysqli_fetch_assoc($result)){?>
             <tr>
               <td><?=$row['id']?></td>
-              <td><?=$row['code']?></td>
-              <td><?=$row['name']?></td>
-              <td><?=$row['status']?></td>
-              <td><button type="button"><a href="http://localhost:81/example/editpg.php?id=<?=$row['id']?>">Edit</a></button></td>    
+              <td><?=$row['p_id']?></td>
+              <td><?=$row['price']?></td>
+              <td><button type="button"><a href="http://localhost:81/example/editpp.php?id=<?=$row['id']?>">Edit</a></button></td>
             </tr>
-            <?}?>          
+            <?}?>
     </table>
     <br>
         <input type="submit" value="ADD">
-    </form>
+    </form>    
   </body>
 </html>
