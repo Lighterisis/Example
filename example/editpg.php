@@ -15,7 +15,7 @@
     <body>
         <h1>Edit Product Group</h1>
         <form action="update.php" method="post">
-            <fieldset>
+            <fieldset style="width:20%">
                 <legend>Edit Product Group</legend>
                     <? while($row=mysqli_fetch_assoc($result)){?>
                         Code:<br>
@@ -25,10 +25,9 @@
                         Name:<br>
                             <input type="text" name="name" value="<?=$row['name']?>">
                         <br>
-                        Status:<br>
-                            <input type="radio" name="status" value="Active" checked> Active<br>
-                            <input type="radio" name="status" value="Inactive"> Inactive<br>
-                        <br>
+                        Status:<br>    
+                        <input type="radio" name="status" value="Active" <?=$row["status"] == 'Active'  ? 'checked' : ''; ?>> Active
+                        <input type="radio" name="status" value="Inactive" <?=$row["status"] == 'Inactive'  ? 'checked' : ''; ?>> Inactive<br> 
                     <?}?>  
                         <br>
                             <input type="submit" value="UPDATE">

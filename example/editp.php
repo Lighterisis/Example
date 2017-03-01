@@ -14,25 +14,39 @@
     <body>
     <h1>Product</h1>
         <form action="updatep.php" method="post">
-            <fieldset>
+            <fieldset style="width:20%">
                 <legend>Edit Product</legend>
                     <? 
                         while($row=mysqli_fetch_assoc($result)){?>
                         PG_ID:<br>
-                        <input type="text" name="pg_id" value=<?=$row['pg_id']?>>
+                        <input type="hidden" name="id" value="<?=$id?>">
+                        <select name="pg_id">
+                                <?
+                                $sql = "SELECT * FROM pg";
+                                $listpg = $con->query($sql);
+
+                                while($rowpg=mysqli_fetch_assoc($listpg)){ 
+                                        $text = "<option value=".$rowpg['id']; 
+                                            if ($row['pg_id'] == $rowpg['id']) {
+                                                $text = $text." selected";
+                                            }
+                                            $text = $text.">".$rowpg['id']."</option>";
+                                            echo $text;
+                                }
+                        ?>
+                        </select>
                         <br>
                         Code:<br>
-                        <input type="text" name="code" value=<?=$row['code']?>>
+                        <input type="text" name="code" value="<?=$row['code']?>">
                         <br>
                         Name:<br>
-                        <input type="text" name="name" value=<?=$row['name']?>>
+                        <input type="text" name="name" value="<?=$row['name']?>">
                         <br>
                         Status:<br>
-                        <input type="radio" name="status" value="Active" checked> Active<br>
-                        <input type="radio" name="status" value="Inactive"> Inactive<br>
+                        <input type="radio" name="status" value="Active"<?=$row['status']=='Active'  ? "checked": " "?>> Active
+                        <input type="radio" name="status" value="Inactive"<?=$row['status']=='Inactive'  ? "checked": " "?>> Inactive<br>
                         <br>
                     <?}?>
-                        <br>
                         <input type="submit" value="UPDATE">
             </fieldset>
         </form>

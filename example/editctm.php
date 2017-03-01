@@ -12,29 +12,26 @@
   $result = $con->query($sql);
 ?>
     <body>
-    <h1>Product Group</h1>
-        <form action="updatectm.php">
-            <fieldset>
+    <h1>Customer</h1>
+        <form action="updatectm.php" method="post">
+            <fieldset style="width:40%">
                 <legend>Edit Customer</legend>
                     <? while($row=mysqli_fetch_assoc($result)){?>
-                    ID:<br>
-                    <input type="text" name="number" value=<?=$row['id']?>>
-                    <br>
                     Code:<br>
+                    <input type="hidden" name="id" value="<?=$id?>">
                     <input type="text" name="code" value=<?=$row['code']?>>
                     <br>
-                    Name:<br>
+                    Name:
                     <input type="text" name="name" value=<?=$row['name']?>>
-                    <br>
-                    Surname:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    Surname:
                     <input type="text" name="surname" value=<?=$row['surname']?>>
                     <br>
                     Status:<br>
-                    <input type="text" name="status" value=<?=$row['status']?>>
-                    <br>
+                    <input type="radio" name="status" value="Active"<?=$row['status']=='Active'  ? "checked": " "?>> Active
+                    <input type="radio" name="status" value="Inactive"<?=$row['status']=='Inactive'  ? "checked": " "?>> Inactive<br>
                     <?}?>
-                    <br>
-                    <input type="submit" value="UPDATE">
+                    <br><input type="submit" value="UPDATE">
             </fieldset>
         </form>
     </body>

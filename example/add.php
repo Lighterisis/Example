@@ -2,7 +2,7 @@
     <body>
     <h1>Product Group</h1>
         <form action="save.php" method="post">
-            <fieldset>
+            <fieldset style="width:20%">
                 <legend>Add Product Group</legend>
                     Code:<br>
                     <input type="text" name="code">
@@ -11,9 +11,8 @@
                     <input type="text" name="name">
                     <br>
                     Status:<br>
-                    <input type="radio" name="status" value="Active" checked> Active<br>
+                    <input type="radio" name="status" value="Active" checked> Active
                     <input type="radio" name="status" value="Inactive"> Inactive<br>
-                    <br>
                     <br>
                     <input type="submit" value="SAVE">
             </fieldset>

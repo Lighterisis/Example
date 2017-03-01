@@ -49,12 +49,16 @@ tr:nth-child(even) {
                 <td><?=$row['name']?></td>
                 <td><?=$row['surname']?></td>
                 <td><?=$row['status']?></td>
-                <td><button type="button"><a href="http://localhost:81/example/editpg.php?id=<?=$row['id']?>">Edit</a></button></td>
+                <td><button type="button"><a href="http://localhost:81/example/editctm.php?id=<?=$row['id']?>">Edit</a></button></td>
             </tr>
         <?}?>
     </table>
     <br>
       <input type="submit" value="ADD">
+        <button type="button"><a href="http://localhost:81/example/index.php">product group</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewproduct.php">product</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewpp.php">product pay</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewpsearch.php">search product</a></button>
     </form>
 </body>
 </html>

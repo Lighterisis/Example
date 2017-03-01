@@ -53,6 +53,10 @@
     </table>
     <br>
         <input type="submit" value="ADD">
+        <button type="button"><a href="http://localhost:81/example/index.php">product group</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewproduct.php">product</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewctm.php">customer</a></button>
+        <button type="button"><a href="http://localhost:81/example/viewpsearch.php">search product</a></button>
     </form>    
   </body>
 </html>

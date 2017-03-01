@@ -11,7 +11,7 @@
   // insert
   $p_id = $_POST['p_id'];
   $price = $_POST['price'];
-  $sql = "INSERT INTO pp (productid,price) 
+  $sql = "INSERT INTO pp (p_id,price) 
         VALUES ('$p_id','$price')";
 	$query = mysqli_query($con, $sql);
 	mysqli_close($con);

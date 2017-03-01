@@ -13,14 +13,28 @@
 ?>
 
     <body>
-        <h1>Edit Product Pay</h1>
+        <h1>Edit Product Price</h1>
         <form action="updatepp.php" method="post">
-            <fieldset>
-                <legend>Edit Product Pay</legend>
+            <fieldset style="width:20%">
+                <legend>Edit Product Pricce</legend>
                     <? while($row=mysqli_fetch_assoc($result)){?>
                         ProductID:<br>
                             <input type="hidden" name="id" value="<?=$id?>">
-                            <input type="text" name="p_id" value="<?=$row['p_id']?>">
+                            <select name="p_id">
+                                <?
+                                $sql = "SELECT * FROM p";
+                                $listp = $con->query($sql);
+
+                                while($rowp=mysqli_fetch_assoc($listp)){ 
+                                        $text = "<option value=".$rowp['id'];
+                                            if ($row['p_id'] == $rowp['id']) {
+                                                $text = $text." selected";
+                                            }
+                                            $text = $text.">".$rowp['id']."</option>";
+                                            echo $text;
+                                }
+                                ?>
+                            </select>
                         <br>
                         Price:<br>
                             <input type="text" name="price" value="<?=$row['price']?>">
