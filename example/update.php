@@ -13,7 +13,7 @@
   $code = $_POST['code'];
   $name = $_POST['name'];
   $status = $_POST['status'];
-  $sql="SELECT * FROM pg WHERE code='$code' OR name='$name'";
+  $sql="SELECT code,name FROM pg WHERE code='$code' OR name='$name'";
   $query = mysqli_query($con, $sql);
 
       if(mysqli_num_rows($query) != '0'){
